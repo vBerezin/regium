@@ -1,0 +1,11 @@
+include ~blocks/icon/mixin
+
+mixin popup(data)
+	- data = data || {}
+	.popup(
+		class=mods('popup', data.mods)
+		class=data.class
+		)&attributes(data.attributes)
+		.popup__inner
+			.popup__body
+				block

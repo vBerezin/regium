@@ -1,0 +1,25 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "entry",
+      "targets": {
+        "ie": "11"
+      }
+    }]
+  ],
+  "ignore": [
+    "./node_modules"
+  ],
+  "plugins": [
+    "transform-object-assign",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-private-methods",
+    "@babel/plugin-transform-classes",
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+@import "mixin";
+
+.l-row {
+  @include make-row();
+}
+
+@include make-grid-columns(
+  $columns: $layout-columns,
+  $gutter: $layout-gutter,
+  $breakpoints: $layout-breakpoints
+);

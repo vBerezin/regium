@@ -1,0 +1,25 @@
+include ~blocks/lazy-image/mixin
+include ~blocks/toggle/mixin
+
+mixin item-subscribe(data)
+	-
+		data = data || {};
+	.item-subscribe(
+		class=data.class
+		class=mods('item-subscribe', data.mods)
+		)&attributes(data.attributes)
+		.item-subscribe__head
+			.item-subscribe__image
+				+lazy-image(data.image)
+			.item-subscribe__form
+				.item-subscribe__status(data-rel="item.subscribe.status") Unsubscribed
+				+toggle({
+					class: 'item-subscribe__toggle',
+					name: data.name,
+					value: data.name,
+					attributes: {
+						'data-rel': 'item.subscribe.toggle'
+					}
+				})
+		.item-subscribe__body #{data.text}
+			block

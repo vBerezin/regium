@@ -1,0 +1,24 @@
+@import '~blocks/breakpoints/mixin';
+
+.list-subscribe {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #d3d3d3;
+
+  &__item {
+    margin-bottom: 5px;
+  }
+
+  @include breakpoint(md) {
+    display: grid;
+    grid-gap: 5px;
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+    &__item {
+      margin-bottom: 0;
+    }
+  }
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

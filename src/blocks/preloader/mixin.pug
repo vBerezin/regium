@@ -1,0 +1,10 @@
+mixin preloader(data)
+  - data = data || {};
+  .preloader(
+    class=data.class
+    class=mods('preloader', data.mods)
+    )&attributes(data.attributes)
+    if (block)
+      block
+    else
+      span Загрузка...

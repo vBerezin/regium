@@ -1,0 +1,79 @@
+include ~blocks/item-subscribe/mixin
+
+-
+	items = [
+		{
+			text: 'True/False Quiz. Keep your brain fit!',
+			image: {
+				src: '/images/sites/site-1.png',
+				srcset: {
+					'2x': '/images/sites/site-1@2x.png'
+				},
+			},
+			name: 'trainyrbrain',
+		},
+		{
+			text: 'Fun photo Quiz. Match words and names to pictures of objects and people.',
+			image: {
+				src: '/images/sites/site-2.png',
+				srcset: {
+					'2x': '/images/sites/site-2@2x.png'
+				},
+			},
+			name: 'ynquiz'
+		},
+		{
+			text: 'Celebrity Photo Quiz. Guess the star by a photo!',
+			image: {
+				src: '/images/sites/site-3.png',
+				srcset: {
+					'2x': '/images/sites/site-3@2x.png'
+				},
+			},
+			name: 'finditquiz'
+		},
+		{
+			text: 'Easy Yes/No Quiz. Distinguish facts from fiction!',
+			image: {
+				src: '/images/sites/site-4.png',
+				srcset: {
+					'2x': '/images/sites/site-4@2x.png'
+				},
+			},
+			name: 'moviequizonline'
+		},
+		{
+			text: 'Movie Photo Quiz. Guess the film by a still! ',
+			image: {
+				src: '/images/sites/site-5.png',
+				srcset: {
+					'2x': '/images/sites/site-5@2x.png'
+				},
+			},
+			name: 'findsuperstar'
+		},
+		{
+			text: 'Geography quiz. Guess the country by the photo (fact/description)',
+			image: {
+				src: '/images/sites/site-6.png',
+				srcset: {
+					'2x': '/images/sites/site-6@2x.png'
+				},
+			},
+			name: 'whatcountry'
+		},
+	]
+
+.list-subscribe.js-list-subscribe
+	each item in items
+		+item-subscribe({
+			class: 'list-subscribe__item',
+			text: item.text,
+			image: item.image,
+			name: item.name,
+			attributes: {
+				'data-rel': 'list.subscribe.item',
+				'data-name': item.name,
+			}
+		})
+

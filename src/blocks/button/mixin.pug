@@ -1,0 +1,10 @@
+mixin button(data)
+	-
+		data = data || {};
+		url = data.attributes && data.attributes.href;
+		tagName = url ? 'a' : 'button';
+	#{tagName}.button(
+		class=data.class
+		class=mods('button', data.mods)
+		)&attributes(data.attributes) #{data.text}
+		block

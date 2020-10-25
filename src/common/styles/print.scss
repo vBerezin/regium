@@ -1,0 +1,9 @@
+@media print {
+  .no-print,
+  .icon,
+  form,
+  input,
+  button {
+    display: none;
+  }
+}

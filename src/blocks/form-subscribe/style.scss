@@ -1,0 +1,41 @@
+@import "~blocks/breakpoints/mixin";
+
+.form-subscribe {
+  padding-top: 10px;
+  margin-top: 20px;
+  border-top: 1px solid #d3d3d3;
+
+
+  &__submit,
+  &__reset {
+    margin-top: 10px;
+  }
+
+  @include breakpoint(xs) {
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 0 -8px;
+    }
+    &__submit,
+    &__reset {
+      padding: 0 8px;
+      flex-shrink: 0;
+      flex-grow: 1;
+    }
+  }
+  @include breakpoint(md) {
+    &__submit,
+    &__reset {
+      flex-grow: 0;
+    }
+    &__submit {
+      flex-basis: 280px;
+    }
+    &__reset {
+      flex-basis: 320px;
+    }
+  }
+}

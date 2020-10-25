@@ -1,0 +1,23 @@
+@import "~common/styles/variables/fonts.scss";
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-display: swap;
+  font-weight: $font-weight-regular;
+  src: url('~static/fonts/SegoeUI.eot');
+  src: local('Segoe UI'), local('SegoeUI'),
+  url('~static/fonts/SegoeUI.woff') format('woff'),
+  url('~static/fonts/SegoeUI.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-display: swap;
+  font-weight: $font-weight-bold;
+  src: url('~static/fonts/SegoeUI-Bold.eot');
+  src: local('Segoe UI Bold'), local('SegoeUI-Bold'),
+  url('~static/fonts/SegoeUI-Bold.woff') format('woff'),
+  url('~static/fonts/SegoeUI-Bold.ttf') format('truetype');
+}

@@ -1,0 +1,14 @@
+mixin progress(data)
+    -
+        data = data || {};
+    .progress(
+        class=data.class
+        class=mods('progress', data.mods)
+        data-value=data.value
+    )&attributes(data.attributes)
+        .progress__head #{data.title}
+        .progress__body
+            .progress__bar
+                .progress__line(data-rel="progress.line"
+                style=`max-width:${data.value}%`)
+            .progress__label(data-rel="progress.label") #{data.value}%

@@ -1,0 +1,14 @@
+@import "~common/styles/variables/animation";
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.a-opacity {
+  animation: opacity $animation-time ease-out;
+}

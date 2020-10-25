@@ -1,0 +1,24 @@
+@import "~common/styles/variables/animation";
+@import "~common/styles/variables/colors";
+@import "styles/animations";
+
+.preloader {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 0;
+  align-items: center;
+  justify-content: center;
+  background: $color-overlay;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  animation: preloader-show $animation-time ease-out;
+  z-index: 1000;
+
+  &.is-active {
+    display: flex;
+  }
+}

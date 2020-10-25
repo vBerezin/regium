@@ -1,0 +1,161 @@
+@import "~common/styles/variables/layout";
+@import "functions";
+
+@mixin media-breakpoint-up($name, $breakpoints: $layout-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $layout-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $layout-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-only($name, $breakpoints: $layout-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin make-row($gutter: $layout-gutter) {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-right: -$gutter / 2;
+  margin-left: -$gutter / 2;
+}
+
+@mixin make-col-ready($gutter: $layout-gutter) {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+
+@mixin make-col($size, $columns: $layout-columns) {
+  flex: 0 0 percentage($size / $columns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $layout-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin make-grid-columns($columns: $layout-columns, $gutter: $layout-gutter, $breakpoints: $layout-breakpoints) {
+  // Common properties for all breakpoints
+  %grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
+      .l-col#{$infix}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    .l-col#{$infix},
+    .l-col#{$infix}-auto {
+      @extend %grid-column;
+    }
+
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.l-col-{bp}` classes for equal-width flexbox columns
+      .l-col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .l-col#{$infix}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%; // Reset earlier grid tiers
+      }
+
+      @for $i from 1 through $columns {
+        .l-col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
+      }
+      .l-col#{$infix}-order-first {
+        order: -1;
+      }
+      .l-col#{$infix}-order-last {
+        order: $columns + 1;
+      }
+
+      @for $i from 0 through $columns {
+        .l-col#{$infix}-order-#{$i} {
+          order: $i;
+        }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .l-col#{$infix}-offset-#{$i} {
+            @include make-col-offset($i, $columns);
+          }
+        }
+      }
+    }
+  }
+}

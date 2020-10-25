@@ -1,0 +1,24 @@
+include ~blocks/popup/mixin
+
++popup({
+	class: 'popup-subscribe',
+	attributes: {
+		id: 'js-popup-subscribe'
+	}
+})
+	.popup-subscribe__head
+		.popup-subscribe__title Hurrah!
+		p Your subscription preferences have been succesfully saved
+	.popup-subscribe__body
+		.popup-subscribe__result(data-rel="popup.subscribe.result")
+		.popup-subscribe__label.popup-subscribe__label-plus more fun added
+		.popup-subscribe__label.popup-subscribe__label-minus fun lost :(
+	.popup-subscribe__footer
+		+button({
+			class: 'popup-subscribe__submit',
+			text: 'Ok, great!',
+			mods: ['block', 'large'],
+			attributes: {
+				'data-click': 'popup.close',
+			}
+		})

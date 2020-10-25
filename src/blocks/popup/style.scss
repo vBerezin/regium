@@ -1,0 +1,40 @@
+@import "~common/styles/variables/fonts";
+@import "~common/styles/variables/colors";
+@import "~common/styles/variables/animation";
+@import "~blocks/breakpoints/mixin";
+@import "styles/animations";
+
+.popup {
+  $z-index: 500;
+  display: none;
+  position: fixed;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index;
+  background: $color-overlay;
+  animation: popup-show $animation-time ease-out;
+
+  &.is-active {
+    display: flex;
+  }
+
+  &__inner {
+    position: relative;
+    width: 620px;
+    max-width: 100%;
+    padding: 25px;
+    background-color: #fff;
+  }
+  &__body {
+    padding: 50px;
+    border: 10px solid #d8d8d8;
+  }
+}

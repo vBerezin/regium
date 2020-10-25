@@ -1,0 +1,19 @@
+@import "~blocks/breakpoints/mixin";
+
+.footer {
+  color: #4e4e4e;
+  font-size: 12px;
+
+  p {
+    margin: 15px 0 0 0;
+  }
+  &__privacy {
+    margin-top: 15px;
+  }
+
+  @include breakpoint(sm) {
+    &__privacy {
+      margin-top: 30px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+extends ~layout/l-page/index
+
+block variables
+	- TITLE = 'Entertain Me More'
+	- DESCRIPTION = 'How much fun do you want in your life?'
+
+block append body
+	include ~blocks/popup-subscribe/index
+
+block append aside
+	include ~blocks/user-info/index
+
+block main
+	h1 Ok, let’s change your preferences
+	p To unsubscribe, please uncheck the appropriate box(es).
+	include ~blocks/list-subscribe/index
+
+block main-bottom
+	include ~blocks/form-subscribe/index
+
+block append stylesheets
+	link(rel="stylesheet" href=`/index.css?${$.version}`)
+
+block append scripts
+	script(src=`/index.js?${$.version}`)

@@ -1,0 +1,14 @@
+mixin toggle(data)
+	-
+		data = data || {};
+	label.toggle(
+		class=data.class
+		class=mods('toggle', data.mods)
+		data-value=data.value
+	)&attributes(data.attributes)
+		input(
+			type="checkbox"
+			value=data.value
+			name=data.name
+			checked=data.checked)
+		span.toggle__button

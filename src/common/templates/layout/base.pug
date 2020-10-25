@@ -1,0 +1,17 @@
+include ~common/templates/functions/mods
+
+block variables
+	include ~common/templates/variables
+doctype html
+html(lang='ru')
+	head
+		block head
+			title #{TITLE}
+			include ~common/templates/meta
+			include ~common/templates/favicon
+			block stylesheets
+	body
+		block body
+		include ~blocks/app-preloader/index
+		//- include ~common/templates/sprite
+		block scripts

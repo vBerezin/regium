@@ -1,0 +1,13 @@
+@import "~common/styles/variables/layout";
+@import "~blocks/breakpoints/mixin";
+
+.l-container {
+  padding: 0 var(--container-padding);
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+:root {
+  --container-padding: #{$container-padding};
+  --container-width: #{$container-width};
+}

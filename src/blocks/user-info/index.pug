@@ -1,0 +1,16 @@
+include ~blocks/progress/mixin
+
+.user-info.js-user-info
+    .user-info__head How much fun</br>do you want in your life?
+    .user-info__body
+        .user-info__email harry.simon@yahoo.com
+        +progress({
+            title: 'Fun you get',
+            value: 0,
+            attributes: {
+                'data-rel': 'user.info.progress'
+            }
+        })
+    .user-info__footer
+        a(href="?subscribe" data-click="list.subscribe.all") Subscribe
+        !=' to all our fun sites to upgrade your fun progress'

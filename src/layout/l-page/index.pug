@@ -1,0 +1,18 @@
+extends ~common/templates/layout/base
+
+block body
+	.l-page
+		.l-page__top
+			.l-page__aside
+				block aside
+					.l-page__header
+						block header
+							include ~blocks/header/index
+			main.l-page__main
+				block main
+		.l-page__bottom
+			.l-page__main
+				block main-bottom
+			.l-page__footer
+				block footer
+					include ~blocks/footer/index

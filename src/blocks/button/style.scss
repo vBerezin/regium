@@ -1,0 +1,50 @@
+@import "~common/styles/variables/transition";
+@import "~common/styles/variables/fonts";
+@import "~blocks/breakpoints/mixin";
+
+.button {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  color: #fff;
+  background: #2a2a2a;
+  border: 1px solid #2a2a2a;
+  font-weight: $font-weight-regular;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  transition: background-color $transition-time ease-out;
+
+  &.is-disabled,
+  &[disabled] {
+    opacity: 0.9;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: darken(#2a2a2a, 5%);
+  }
+
+  &.button--round {
+    border-radius: 25px;
+  }
+  &.button--block {
+    display: block;
+    width: 100%;
+  }
+  &.button--large {
+    font-size: 18px;
+  }
+  &.button--grey {
+    color: #1c91ed;
+    background: #efefef;
+    border-color: #b7b7b7;
+    &:hover {
+      background-color: #b7b7b7;
+    }
+  }
+}

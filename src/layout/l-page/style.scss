@@ -1,0 +1,81 @@
+@import "~blocks/breakpoints/mixin";
+
+.l-page {
+  position: relative;
+  z-index: 100;
+  padding: 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    top: 20px;
+    border: 10px #d8d8d8 solid;
+    z-index: -1;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__aside {
+    margin-bottom: 40px;
+  }
+  &__footer {
+    margin-top: 40px;
+  }
+
+  @include breakpoint(sm) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 100vh;
+
+    &__top,
+    &__bottom {
+      display: flex;
+    }
+    &__top {
+      flex: 1 0 auto;
+      justify-content: flex-start;
+    }
+    &__bottom {
+      margin-top: 20px;
+      align-items: flex-end;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+    }
+    &__aside,
+    &__footer {
+      flex: 0 0 200px;
+      max-width: 200px;
+      margin-right: 40px;
+    }
+    &__aside {
+      margin-bottom: 0;
+    }
+    &__footer {
+      margin-top: 0;
+    }
+    &__header {
+      text-align: left;
+      margin-bottom: 80px;
+    }
+    &__main {
+      flex: 0 1 1025px;
+      max-width: 1025px;
+    }
+  }
+  @include breakpoint(md) {
+    padding: 100px;
+    &::after {
+      left: 25px;
+      right: 25px;
+      bottom: 25px;
+      top: 25px;
+    }
+  }
+}

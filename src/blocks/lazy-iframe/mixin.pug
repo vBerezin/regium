@@ -1,0 +1,7 @@
+mixin lazy-iframe(data)
+	-
+		data = data || {}
+	iframe(
+		class=data.class
+		data-src=data.src
+	)&attributes(data.attributes)

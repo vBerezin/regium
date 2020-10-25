@@ -1,0 +1,22 @@
+include ~blocks/button/mixin
+
+form.form-subscribe.js-form-subscribe
+	.form-subscribe__inner
+		.form-subscribe__submit
+			+button({
+				text: 'Save changes',
+				mods: ['block', 'large'],
+				attributes: {
+					type: 'submit'
+				}
+			})
+		.form-subscribe__reset
+			+button({
+				text: 'Unsubscribe from all of the above. It’s over',
+				mods: ['block', 'grey'],
+				attributes: {
+					type: 'reset'
+				}
+			})
+
+

@@ -1,0 +1,16 @@
+mixin image(data)
+	- data = data || {}
+	-
+		srcset = []
+		for (const key in data.srcset) {
+			srcset.push(`${data.srcset[key]} ${key}`);
+		};
+		srcset = srcset.join(',');
+	img(
+		class=data.class
+		class=mods('image', data.mods)
+		src=data.src
+		srcset=srcset
+		alt=data.alt || data.title || ''
+		title=data.title
+	)&attributes(data.attributes)

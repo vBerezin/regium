@@ -1,0 +1,18 @@
+{
+  "disallowSpaceAfterCodeOperator": true,
+  "disallowClassAttributeWithStaticValue": true,
+  "requireLowerCaseTags": true,
+  "validateDivTags": true,
+  "requireClassLiteralsBeforeAttributes": true,
+  "disallowClassLiteralsBeforeIdLiterals": true,
+  "disallowDuplicateAttributes": true,
+  "disallowLegacyMixinCall": true,
+  "disallowSpacesInsideAttributeBrackets": true,
+  "disallowMultipleLineBreaks": true,
+  "requireSpaceAfterCodeOperator": ["-", "="],
+  "requireLowerCaseAttributes": true,
+  "validateIndentation": "\t",
+  "validateTemplateString": true,
+  "validateAttributeQuoteMarks": "'",
+  "validateAttributeSeparator": { "separator": " ", "multiLineSeparator": "\n" }
+}

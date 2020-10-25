@@ -1,0 +1,13 @@
+include ~blocks/image/mixin
+
+header.header
+    a.header__logo(href="/")
+        +image({
+            src: '/images/logo.png',
+            srcset: {
+                '2x': '/images/logo@2x.png'
+            },
+            attributes: {
+                alt: 'Entertain Me More'
+            }
+        })

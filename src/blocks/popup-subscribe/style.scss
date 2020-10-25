@@ -1,0 +1,53 @@
+@import "~common/styles/variables/fonts";
+
+.popup-subscribe {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+  &__head {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  &__title {
+    color: #000;
+    font-size: 58px;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+  &__footer {
+    margin-top: 30px;
+  }
+  &__submit {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  &__result {
+    font-size: 36px;
+    line-height: 1;
+    font-weight: $font-weight-bold;
+  }
+  &__label {
+    display: none;
+    font-size: 14px;
+    color: #aeaead;
+  }
+
+  &.popup-subscribe--plus {
+    .popup-subscribe__result {
+      color: #f2a723;
+    }
+    .popup-subscribe__label-plus {
+      display: block;
+    }
+  }
+  &.popup-subscribe--minus {
+    .popup-subscribe__result {
+      color: #c34c4c;
+    }
+    .popup-subscribe__label-minus {
+      display: block;
+    }
+  }
+}

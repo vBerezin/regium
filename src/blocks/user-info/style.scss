@@ -1,0 +1,21 @@
+@import "~blocks/breakpoints/mixin";
+
+.user-info {
+  &__head {
+    margin-bottom: 20px;
+  }
+  &__email {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  &__footer {
+    color: #999;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  @include breakpoint(sm) {
+    &__head {
+      margin-bottom: 40px;
+    }
+  }
+}

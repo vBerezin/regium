@@ -1,0 +1,19 @@
+@import "~common/styles/variables/layout";
+@import "~common/styles/mixins/media";
+
+.h-hidden {
+  display: none !important;
+}
+
+@each $name, $screen in $layout-breakpoints {
+  .h-hidden-#{$name}-up {
+    @include media-min($screen) {
+      display: none !important;
+    }
+  }
+  .h-hidden-#{$name}-down {
+    @include media-max($screen) {
+      display: none !important;
+    }
+  }
+}

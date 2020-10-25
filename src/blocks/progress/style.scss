@@ -1,0 +1,44 @@
+@import "~common/styles/variables/transition";
+
+.progress {
+  display: block;
+  &__head {
+    font-size: 11px;
+    line-height: 1;
+    margin-bottom: 5px;
+    color: #b9b9b9;
+    text-transform: uppercase;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+  &__bar {
+    flex: 1 1 auto;
+    font-size: 0;
+    line-height: 0;
+    height: 12px;
+    border-radius: 6px;
+    background: #2c2c2c;
+    position: relative;
+    overflow: hidden;
+  }
+  &__line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 0;
+    transition: max-width $transition-time ease-out;
+    background: #f2a723;
+  }
+  &__label {
+    flex: 0 0 auto;
+    min-width: 50px;
+    font-size: 18px;
+    line-height: 1;
+    color: #f2a723;
+    text-align: right;
+  }
+}

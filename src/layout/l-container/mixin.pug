@@ -1,0 +1,7 @@
+mixin l-container(data)
+	- data = data || {};
+	.l-container(
+		class=data.class
+		class=mods('l-container', data.mods)
+		)&attributes(data.attributes)
+		block

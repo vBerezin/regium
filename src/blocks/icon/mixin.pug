@@ -1,0 +1,8 @@
+mixin icon(data)
+	- data = data || {};
+	svg(
+		class=mods('icon', data.mods)
+		class=`icon icon-${data.name}`
+		class=data.class
+		)&attributes(data.attributes)
+		use(xlink:href=`#icon-${data.name}`)
