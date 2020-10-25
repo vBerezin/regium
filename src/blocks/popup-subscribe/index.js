@@ -13,7 +13,11 @@ class Instance {
   }
   set value(value) {
     this.#value = value;
-    this.#result.innerHTML = value !== 0 ? `${value}%` : '';
+    if (value !== 0) {
+      this.#result.innerHTML = value > 0 ? `+${value}%` : `${value}%`;
+    } else {
+      this.#result.innerHTML = '';
+    }
     this.el.classList.toggle('popup-subscribe--plus', value > 0);
     this.el.classList.toggle('popup-subscribe--minus', value < 0);
   }
